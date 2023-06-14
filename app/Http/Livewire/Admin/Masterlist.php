@@ -30,7 +30,7 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
     {
         return [
             Action::make('create')
-            ->label('Add User')
+            ->label('Add Member')
             ->button()
             ->color('primary')
             ->icon('heroicon-o-plus')
