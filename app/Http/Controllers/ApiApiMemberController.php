@@ -27,7 +27,7 @@ class ApiApiMemberController extends Controller
     public function getMembers (Request $request){
         $offset = (int)$request->offset;
         $limit= (int) $request->limit;
-        $members = Masterlist::query()->skip($offset)->limit($limit)->get();
+        $members = Masterlist::query()->skip($offset)->take($limit)->get();
         return response()->json(['data' => $members] ,200);
     }
 }
