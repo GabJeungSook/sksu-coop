@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiApiMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/v1/total-member', [ApiApiMemberController::class ,'getTotalMembers'])->name('api.totalmember');
+Route::get('/v1/member-details/{id}', [ApiApiMemberController::class ,'getMemberDetails'])->name('api.getMemberDetails');
+Route::get('/v1/all-members', [ApiApiMemberController::class ,'getAllMembers'])->name('api.getAllMembers');
+Route::get('/v1/members/{offset}/{limit}', [ApiApiMemberController::class ,'getMembers'])->name('api.getMembers');
