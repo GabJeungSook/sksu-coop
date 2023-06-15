@@ -44,6 +44,12 @@ Route::get('/upload', function () {
     ->middleware(['auth', 'verified'])
     ->name('upload');
 
+Route::get('/reports', function () {
+    return view('admin.report');
+})
+    ->middleware(['auth', 'verified'])
+    ->name('report');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('initial_paid_up')->nullable();
             $table->string('bod_resolution')->nullable();
             $table->date('date_created')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

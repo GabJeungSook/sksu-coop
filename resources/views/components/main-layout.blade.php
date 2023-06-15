@@ -139,7 +139,10 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex min-h-0 flex-1 flex-col bg-sidebar">
         <div class="flex h-16 space-x-2 flex-shrink-0 items-center bg-white px-4">
-          <img class="h-8 w-auto" src="{{ asset('images/coop_logo.png') }}" alt="Your Company">
+          <div class="flex">
+            <img src="{{ asset('images/coop_logo_1.png') }}" class="h-8 w-auto" alt="">
+            <img src="{{ asset('images/coop_logo.png') }}" class="h-8 w-auto" alt="">
+        </div>
           {{-- <div>
             <h1 class="font-black text-sidebar font-montserrat  text-xl">DARBC</h1>
             <h1 class="font-semibold leading-3 text-indigo-600 text-sm">Land Management</h1>
@@ -175,8 +178,8 @@
               </svg>
               Masterlist
             </a>
-            {{-- <a href="{{ route('inquiry') }}"
-              class="{{ request()->routeIs('inquiry') ? 'bg-violet-800' : '' }} hover:bg-violet-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
+            <a href=""
+              class=" hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 fill="none">
                 <path
@@ -184,7 +187,7 @@
                   fill="currentColor"></path>
               </svg>
               Inquiry
-            </a> --}}
+            </a>
             {{-- <a href="{{ route('upload') }}"
               class="{{ request()->routeIs('upload') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -219,8 +222,8 @@
               </svg>
               Calendar
             </a> --}}
-            {{-- <a href="{{ route('report') }}"
-              class="{{ request()->routeIs('report') ? 'bg-violet-800' : '' }} hover:bg-violet-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
+            <a href="{{ route('report') }}"
+              class="{{ request()->routeIs('report') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 stroke="none" viewBox="0 0 24 24">
                 <path
@@ -228,14 +231,14 @@
                 </path>
               </svg>
               Reports
-            </a> --}}
-            {{-- <a href="{{ route('settings') }}"
-            class="{{ request()->routeIs('settings') ? 'bg-violet-800' : '' }} hover:bg-violet-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
+            </a>
+            <a href=""
+            class=" hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
             <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                 <path d="M18.75 12.75h1.5a.75.75 0 000-1.5h-1.5a.75.75 0 000 1.5zM12 6a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 6zM12 18a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 18zM3.75 6.75h1.5a.75.75 0 100-1.5h-1.5a.75.75 0 000 1.5zM5.25 18.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 010 1.5zM3 12a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 013 12zM9 3.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM12.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM9 15.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
               </svg>
             Settings
-          </a> --}}
+          </a>
 
 
           </nav>
@@ -284,7 +287,7 @@
                         alt="">
                       <span class="flex min-w-0 flex-1 flex-col">
                         <span class="truncate text-sm font-medium text-gray-700 uppercase">{{auth()->user()->name}}</span>
-                        <span class="truncate text-sm text-green-800">User</span>
+                        {{-- <span class="truncate text-sm text-green-800">User</span> --}}
                       </span>
                     </span>
                     <svg class="h-5 w-5 group-hover:text-indigo-700 flex-shrink-0 text-gray-400 " viewBox="0 0 20 20"

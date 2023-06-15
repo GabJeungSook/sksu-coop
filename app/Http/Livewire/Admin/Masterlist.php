@@ -2,25 +2,29 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Livewire\Component;
-use Filament\Tables;
-use Filament\Forms;
-use Filament\Forms\Components\Select;
-use App\Models\Masterlist as MasterlistModel;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\Action;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Wizard;
-use Filament\Forms\Components\Card;
-use WireUi\Traits\Actions;
-use Carbon\Carbon;
 use DB;
+use Carbon\Carbon;
+use Filament\Forms;
+use Filament\Tables;
+use Livewire\Component;
+use WireUi\Traits\Actions;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Grid;
+use Filament\Tables\Actions\Action;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Wizard;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Facades\Storage;
+use Filament\Forms\Components\FileUpload;
+use Illuminate\Database\Eloquent\Builder;
+use App\Models\Masterlist as MasterlistModel;
+
 class Masterlist extends Component implements Tables\Contracts\HasTable
 {
     use Tables\Concerns\InteractsWithTable;
     use Actions;
 
+    public $image_path;
     protected function getTableQuery(): Builder
     {
         return MasterlistModel::query();
@@ -59,6 +63,7 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
                     'initial_paid_up' => $data['initial_paid_up'],
                     'bod_resolution' => $data['bod_resolution'],
                     'date_created' => $data['date_created'],
+                    'image_path' => $data['image_path'],
                 ]);
                 $this->dialog()->success(
                     $title = 'Success',
@@ -69,6 +74,7 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
                 Wizard::make([
                     Wizard\Step::make('Step 1')
                         ->schema([
+                            FileUpload::make('image_path')->label('Photo')->avatar()->image(),
                             Forms\Components\TextInput::make('member_id')->label("Membership ID")->numeric()->required(),
 
                             Card::make()
@@ -95,7 +101,10 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
                                     'male' => 'Male',
                                     'female' => 'Female'
                                 ]),
-                                Forms\Components\TextInput::make('civil_status'),
+                                Select::make('civil_status')->options([
+                                    'M' => 'Married',
+                                    'S' => 'Single'
+                                ]),
                                 Forms\Components\TextInput::make('educational_attainment')->label('Highest Educational Attainment'),
                                 Forms\Components\TextInput::make('occupation')->label('Occupation / Source of Income'),
                                 Forms\Components\TextInput::make('dependent_number')->label("No. of Dependent")->numeric(),
@@ -207,7 +216,6 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
                     Wizard\Step::make('Step 1')
                         ->schema([
                             Forms\Components\TextInput::make('member_id')->label("Membership ID")->numeric()->required(),
-
                             Card::make()
                             ->schema([
                                 Grid::make(3)
@@ -229,10 +237,13 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
                                 }),
                                 Forms\Components\TextInput::make('age')->disabled()->reactive(),
                                 Select::make('gender')->options([
-                                    'male' => 'Male',
-                                    'female' => 'Female'
+                                    'M' => 'Male',
+                                    'F' => 'Female'
                                 ]),
-                                Forms\Components\TextInput::make('civil_status'),
+                                Select::make('civil_status')->options([
+                                    'M' => 'Married',
+                                    'S' => 'Single'
+                                ]),
                                 Forms\Components\TextInput::make('educational_attainment')->label('Highest Educational Attainment'),
                                 Forms\Components\TextInput::make('occupation')->label('Occupation / Source of Income'),
                                 Forms\Components\TextInput::make('dependent_number')->label("No. of Dependent")->numeric(),
@@ -274,20 +285,20 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
             ->label('MEMBER ID')
             ->searchable()
             ->sortable(),
-            TextColumn::make('first_name')
-            ->label('FIRST NAME')
-            ->formatStateUsing(fn ($record) => strtoupper($record->first_name))
+            TextColumn::make('last_name')
+            ->label('LAST NAME')
             ->searchable()
+            ->formatStateUsing(fn ($record) => strtoupper($record->last_name))
             ->sortable(),
             TextColumn::make('middle_name')
             ->label('MIDDLE NAME')
             ->searchable()
             ->formatStateUsing(fn ($record) => strtoupper($record->middle_name))
             ->sortable(),
-            TextColumn::make('last_name')
-            ->label('LAST NAME')
+            TextColumn::make('first_name')
+            ->label('FIRST NAME')
+            ->formatStateUsing(fn ($record) => strtoupper($record->first_name))
             ->searchable()
-            ->formatStateUsing(fn ($record) => strtoupper($record->last_name))
             ->sortable(),
             TextColumn::make('tin_number')
             ->label('TIN NUMBER')

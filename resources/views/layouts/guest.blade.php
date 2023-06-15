@@ -38,7 +38,11 @@
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-5 bg-white shadow-md overflow-hidden sm:rounded-lg">
       <div class="flex justify-center items-center flex-col space-y-2">
-        <img src="{{ asset('images/coop_logo.png') }}" class="h-14" alt="">
+        <div class="flex">
+            <img src="{{ asset('images/coop_logo_1.png') }}" class="h-14" alt="">
+            <img src="{{ asset('images/coop_logo.png') }}" class="h-14" alt="">
+        </div>
+
         <div class="flex justify-center text-center flex-col">
           {{-- <h1 class="text-2xl font-bold font-montserrat text-sidebar ">Welcome to DARBC</h1> --}}
           <p class="text-gray-700">Enter a valid account to continue signing in.</p>
