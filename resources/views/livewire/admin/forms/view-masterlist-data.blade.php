@@ -1,7 +1,7 @@
 <div>
     <div class="flex space-x-4 justify-between">
         <div class="space-y-3 mx-auto">
-            <img src="{{$record->image_path == null ? asset('images/avatar.png') : $record->image_path }}" class="ml-4 h-28 w-28 rounded-full" alt="">
+            <img src="{{$record->image_path == '/storage/' ? asset('images/avatar.png') : $record->image_path }}" class="ml-4 h-28 w-28 rounded-full" alt="">
             <x-button positive icon="photograph" class="w-26" wire:click="$set('updateImage', true)"  label="Change Photo" />
         </div>
         <div class="">
