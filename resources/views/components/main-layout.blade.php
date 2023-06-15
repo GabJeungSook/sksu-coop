@@ -176,7 +176,7 @@
                   class="clr-i-solid--badged clr-i-solid-path-2--badged clr-i-badge"></circle>
                 <rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect>
               </svg>
-              Masterlist
+              Membership Registry
             </a>
             <a href=""
               class=" hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
