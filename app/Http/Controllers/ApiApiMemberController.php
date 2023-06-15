@@ -30,4 +30,22 @@ class ApiApiMemberController extends Controller
         $members = Masterlist::query()->skip($offset)->take($limit)->get();
         return response()->json(['data' => $members] ,200);
     }
+
+    public function getAllActiveMembers (){
+        $members = Masterlist::where(function ($query) {
+            $query->whereNull('bod_resolution')
+                ->orWhere('bod_resolution', '')
+                ->orWhere('bod_resolution', ' ');
+        })->count();
+        return response()->json(['data' => $members] ,200);
+    }
+
+    public function getAllTerminatedMembers (){
+        $members = Masterlist::where(function ($query) {
+            $query->whereNotNull('bod_resolution')
+                ->where('bod_resolution', '!=', '')
+                ->where('bod_resolution', '!=', ' ');
+        })->count();
+        return response()->json(['data' => $members] ,200);
+    }
 }

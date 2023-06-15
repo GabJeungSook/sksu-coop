@@ -22,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/v1/total-member', [ApiApiMemberController::class ,'getTotalMembers'])->name('api.totalmember');
 Route::get('/v1/member-details/{id}', [ApiApiMemberController::class ,'getMemberDetails'])->name('api.getMemberDetails');
 Route::get('/v1/all-members', [ApiApiMemberController::class ,'getAllMembers'])->name('api.getAllMembers');
+Route::get('/v1/active-members', [ApiApiMemberController::class ,'getAllActiveMembers'])->name('api.getAllActiveMembers');
+Route::get('/v1/terminated-members', [ApiApiMemberController::class ,'getAllTerminatedMembers'])->name('api.getAllTerminatedMembers');
 Route::get('/v1/members/{offset}/{limit}', [ApiApiMemberController::class ,'getMembers'])->name('api.getMembers');
