@@ -75,13 +75,13 @@ class ViewMasterlistData extends Component implements Forms\Contracts\HasForms
         $this->dependent_number = $this->record->dependent_number;
         $this->educational_attainment = $this->record->educational_attainment;
         $this->occupation = $this->record->occupation;
-        $this->income = '₱ '.' '.number_format($this->record->income, 2, '.', ',');
+        $this->income = '₱ '.' '.number_format((int)$this->record->income, 2, '.', ',');
         $this->date_accepted =  Carbon::parse($this->record->date_accepted)->format('F d, Y');
         $this->bod_number =  $this->record->bod_number;
         $this->membership_type = strtoupper($this->record->membership_type);
         $this->number_of_shares =  $this->record->number_of_shares.' Shares';
-        $this->amount_subscribed =  '₱ '.' '.number_format($this->record->amount_subscribed, 2, '.', ',');
-        $this->initial_paid_up =  '₱ '.' '.number_format($this->record->initial_paid_up, 2, '.', ',');
+        $this->amount_subscribed =  '₱ '.' '.number_format((int)$this->record->amount_subscribed, 2, '.', ',');
+        $this->initial_paid_up =  '₱ '.' '.number_format((int)$this->record->initial_paid_up, 2, '.', ',');
         $this->bod_resolution =   $this->record->bod_resolution;
         $this->date_created =  Carbon::parse($this->record->date_created)->format('F d, Y');
 
