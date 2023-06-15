@@ -164,7 +164,7 @@
             </a>
 
             <a href="{{ route('masterlist') }}"
-              class="{{ request()->routeIs('masterlist') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
+              class="{{ request()->routeIs('masterlist') || request()->is('*masterlist-data*') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 36 36"
                 preserveAspectRatio="xMidYMid meet" fill="currentColor">

@@ -29,6 +29,11 @@ class ViewMasterlistData extends Component implements Forms\Contracts\HasForms
         ];
     }
 
+    public function redirectToMasterlist()
+    {
+        return redirect()->route('masterlist');
+    }
+
     public function save()
     {
         $member = Masterlist::find($this->record->id);

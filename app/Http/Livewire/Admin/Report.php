@@ -9,6 +9,11 @@ class Report extends Component
 {
     public $report_get;
 
+    public function redirectToMasterlist()
+    {
+        return redirect()->route('masterlist');
+    }
+
     public function render()
     {
         return view('livewire.admin.report', [

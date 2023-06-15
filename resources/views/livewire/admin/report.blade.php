@@ -2,7 +2,7 @@
     <div class="flex justify-between">
         <div>
             <div>
-                {{-- <x-button label="Back" class="font-bold" icon="arrow-left" positive  wire:click="redirectToHealth" /> --}}
+                <x-button label="Back" class="font-bold" icon="arrow-left" positive  wire:click="redirectToMasterlist" />
               </div>
           </div>
         <div class="select flex space-x-2 items-end">

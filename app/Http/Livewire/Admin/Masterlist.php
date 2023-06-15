@@ -149,8 +149,7 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
             ->icon('heroicon-o-eye')
             ->color('warning')
             ->button()
-            ->url(fn (MasterlistModel $record): string => route('view-masterlist-data', $record))
-            ->openUrlInNewTab(),
+            ->url(fn (MasterlistModel $record): string => route('view-masterlist-data', $record)),
             Action::make('edit')
             ->label('Update')
             ->button()

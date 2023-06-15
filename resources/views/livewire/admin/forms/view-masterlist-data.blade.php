@@ -1,8 +1,11 @@
 <div>
-    <div class="flex space-x-4">
+    <div class="flex space-x-4 justify-between">
         <div class="space-y-3">
             <img src="{{$record->image_path == null ? asset('images/avatar.png') : Storage::url($record->image_path) }}" class="h-48 w-48 rounded-full" alt="">
             <x-button positive icon="photograph" class="w-48" wire:click="$set('updateImage', true)"  label="Change Photo" />
+        </div>
+        <div class="">
+            <x-button emerald icon="arrow-left" label="Back" wire:click="redirectToMasterlist"/>
         </div>
     </div>
     <div class="mt-3 overflow-hidden bg-gray-50 shadow sm:rounded-lg">
