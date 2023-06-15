@@ -50,6 +50,18 @@ Route::get('/reports', function () {
     ->middleware(['auth', 'verified'])
     ->name('report');
 
+Route::get('/inquiry', function () {
+    return view('admin.inquiry');
+})
+    ->middleware(['auth', 'verified'])
+    ->name('inquiry');
+
+    Route::get('/settings', function () {
+        return view('admin.settings');
+    })
+        ->middleware(['auth', 'verified'])
+        ->name('settings');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
