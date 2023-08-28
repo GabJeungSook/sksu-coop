@@ -8,9 +8,13 @@
         <div class="select flex space-x-2 items-end">
             <x-native-select label="Report" wire:model="report_get">
                 <option >Select Report</option>
-              <option value="1">All Members</option>
-              <option value="2">Active Members</option>
-              <option value="3">Terminated Members</option>
+              <option value="1">Profile Of Respondents</option>
+              <option value="2">Planting Materials</option>
+              <option value="3">Fertilizers</option>
+              <option value="4">Pesticides</option>
+              <option value="5">Prunning, Harvesting, Postharvest Materials</option>
+              {{-- <option value="2">Active Members</option>
+              <option value="3">Terminated Members</option> --}}
             </x-native-select>
             <x-button.circle positive icon="refresh" spinner="report_get" />
           </div>
@@ -41,14 +45,20 @@
   <div class="mt-5 border rounded-lg p-4" x-ref="printContainer">
     @switch($report_get)
       @case(1)
-        @include('reports.all')
+        @include('reports.respondent_profiles')
       @break
       @case(2)
-        @include('reports.active')
+        @include('reports.sources_of_planting_materials')
       @break
       @case(3)
-        @include('reports.terminated')
+        @include('reports.fertilizers')
       @break
+      @case(4)
+      @include('reports.pesticides')
+      @break
+      @case(5)
+      @include('reports.prunning-harvesting-postharvest')
+    @break
       @default
         <h1 class="text-gray-600">Select report to generate.</h1>
       @break

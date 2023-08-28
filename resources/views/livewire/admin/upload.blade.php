@@ -1,8 +1,8 @@
 <div>
     <div class="border p-4">
-        <h1>Masterlist</h1>
+        <h1>GOAT BIN DATA</h1>
         <input type="file" wire:model="masterlist" />
-        <x-button label="Upload" icon="upload" dark sm wire:click="uploadMasterlist"/>
+        <x-button label="Upload" icon="upload" dark sm wire:click="uploadGoatBinData"/>
     </div>
     {{-- <div class="border p-2">
         <h1>Lot Amortization</h1>
