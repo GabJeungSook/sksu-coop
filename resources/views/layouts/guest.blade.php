@@ -39,8 +39,8 @@
     <div class="w-full sm:max-w-md mt-6 px-6 py-5 bg-white shadow-md overflow-hidden sm:rounded-lg">
       <div class="flex justify-center items-center flex-col space-y-2">
         <div class="flex">
-            <img src="{{ asset('images/coop_logo_1.png') }}" class="h-14" alt="">
-            <img src="{{ asset('images/coop_logo.png') }}" class="h-14" alt="">
+            {{-- <img src="{{ asset('images/coop_logo_1.png') }}" class="h-14" alt="">
+            <img src="{{ asset('images/coop_logo.png') }}" class="h-14" alt=""> --}}
         </div>
 
         <div class="flex justify-center text-center flex-col">

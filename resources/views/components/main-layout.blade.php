@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" href="{{ asset('images/coop_logo.png') }}" />
+  {{-- <link rel="shortcut icon" href="{{ asset('images/coop_logo.png') }}" /> --}}
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -140,8 +140,8 @@
       <div class="flex min-h-0 flex-1 flex-col bg-sidebar">
         <div class="flex h-16 space-x-2 flex-shrink-0 items-center bg-white px-4">
           <div class="flex">
-            <img src="{{ asset('images/coop_logo_1.png') }}" class="h-8 w-auto" alt="">
-            <img src="{{ asset('images/coop_logo.png') }}" class="h-8 w-auto" alt="">
+            {{-- <img src="{{ asset('images/coop_logo_1.png') }}" class="h-8 w-auto" alt="">
+            <img src="{{ asset('images/coop_logo.png') }}" class="h-8 w-auto" alt=""> --}}
         </div>
           {{-- <div>
             <h1 class="font-black text-sidebar font-montserrat  text-xl">DARBC</h1>

@@ -8,8 +8,8 @@
     </style>
   <div class="flex justify-center align-center space-x-1">
     <div class="flex">
-      <img src="{{ asset('images/coop_logo_1.png') }}" class="h-16" alt="">
-      <img src="{{ asset('images/coop_logo.png') }}" class="h-16" alt="">
+      {{-- <img src="{{ asset('images/coop_logo_1.png') }}" class="h-16" alt="">
+      <img src="{{ asset('images/coop_logo.png') }}" class="h-16" alt=""> --}}
     </div>
     <div>
       {{-- <h1 class="text-xl font-bold text-gray-700"> DOLEFIL AGRARIAN REFORM BENEFICIARIES COOP.</h1> --}}
