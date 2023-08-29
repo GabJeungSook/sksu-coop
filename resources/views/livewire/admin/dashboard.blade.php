@@ -2,7 +2,7 @@
     <div>
         {{-- <h3 class="text-base font-semibold leading-6 text-gray-900">Last 30 days</h3> --}}
 
-        <dl class=" grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {{-- <dl class=" grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <div class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
             <dt>
               <div class="absolute rounded-md bg-green-600 p-3">
@@ -54,7 +54,7 @@
               </div>
             </dd>
           </div>
-        </dl>
+        </dl> --}}
         <div class="mt-6">
             <canvas id="myChart" height="100"></canvas>
           </div>

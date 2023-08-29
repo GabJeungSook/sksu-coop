@@ -163,7 +163,7 @@
               Dashboard
             </a>
 
-            <a href="{{ route('masterlist') }}"
+            {{-- <a href="{{ route('masterlist') }}"
               class="{{ request()->routeIs('masterlist') || request()->is('*masterlist-data*') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 36 36"
@@ -177,8 +177,8 @@
                 <rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect>
               </svg>
               Membership Registry
-            </a>
-            <a href="{{ route('inquiry') }}"
+            </a> --}}
+            {{-- <a href="{{ route('inquiry') }}"
               class="{{ request()->routeIs('inquiry') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 fill="none">
@@ -187,7 +187,7 @@
                   fill="currentColor"></path>
               </svg>
               Inquiry
-            </a>
+            </a> --}}
             {{-- <a href="{{ route('upload') }}"
               class="{{ request()->routeIs('upload') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
               <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -232,13 +232,13 @@
               </svg>
               Reports
             </a>
-            <a href="{{ route('settings') }}"
+            {{-- <a href="{{ route('settings') }}"
             class="{{ request()->routeIs('settings') ? 'bg-green-800' : '' }} hover:bg-green-800 text-white group flex items-center rounded-md px-2 py-2 text-sm font-medium">
             <svg class="mr-3 h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                 <path d="M18.75 12.75h1.5a.75.75 0 000-1.5h-1.5a.75.75 0 000 1.5zM12 6a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 6zM12 18a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 18zM3.75 6.75h1.5a.75.75 0 100-1.5h-1.5a.75.75 0 000 1.5zM5.25 18.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 010 1.5zM3 12a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 013 12zM9 3.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM12.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM9 15.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
               </svg>
             Settings
-          </a>
+          </a> --}}
 
 
           </nav>
