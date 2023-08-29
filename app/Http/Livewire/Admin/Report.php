@@ -8,10 +8,12 @@ use App\Models\Planting;
 use App\Models\Prunning;
 use App\Models\Harvesting;
 use App\Models\Masterlist;
+use App\Models\FarmToMarket;
 use App\Models\FertilizerOrganic;
 use App\Models\PesticideHerbicide;
 use App\Models\PostharvesMaterial;
 use App\Models\FertilizerInorganic;
+use App\Models\FarmToRoadAccessOrHouse;
 
 class Report extends Component
 {
@@ -2083,6 +2085,258 @@ class Report extends Component
                       $this->report_get != 5 ? [] : PostharvesMaterial::whereHas('farmer', function($query) {
                           $query->where('municipality', 'T\'boli');
                       })->where('other', '!=', null)->count(),
+
+                        //Postharvest Transportation Farm to Road Access Farm Animal
+                        'banisilan_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Banisilan');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'magpet_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Magpet');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'alamada_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Alamada');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'matalam_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Matalam');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'makilala_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Makilala');
+                            })->where('farm_animals', '!=', null)->count(),
+                        'kidapawan_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Kidapawan');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'lake_sebu_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Lake Sebu');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'tupi_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Tupi');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'tampakan_postharvest_transpo_farm_to_road' =>
+                                $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Tampakan');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'tboli_postharvest_transpo_farm_to_road' =>
+                        $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'T\'boli');
+                        })->where('farm_animals', '!=', null)->count(),
+
+                         //Postharvest Transportation Farm to Road Access Farm Animal With Vehicle
+                         'banisilan_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Banisilan');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'magpet_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Magpet');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'alamada_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Alamada');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'matalam_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Matalam');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'makilala_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Makilala');
+                             })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'kidapawan_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Kidapawan');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'lake_sebu_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Lake Sebu');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'tupi_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tupi');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'tampakan_postharvest_transpo_farm_to_road_vehicle' =>
+                                 $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tampakan');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'tboli_postharvest_transpo_farm_to_road_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'T\'boli');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+
+                        //Postharvest Transportation Farm to Road Access Farm Animal Other
+                         'banisilan_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Banisilan');
+                         })->where('other', '!=', null)->count(),
+                         'magpet_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Magpet');
+                         })->where('other', '!=', null)->count(),
+                         'alamada_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Alamada');
+                         })->where('other', '!=', null)->count(),
+                         'matalam_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Matalam');
+                         })->where('other', '!=', null)->count(),
+                         'makilala_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Makilala');
+                             })->where('other', '!=', null)->count(),
+                         'kidapawan_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Kidapawan');
+                         })->where('other', '!=', null)->count(),
+                         'lake_sebu_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Lake Sebu');
+                         })->where('other', '!=', null)->count(),
+                         'tupi_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tupi');
+                         })->where('other', '!=', null)->count(),
+                         'tampakan_postharvest_transpo_farm_to_road_other' =>
+                                 $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tampakan');
+                         })->where('other', '!=', null)->count(),
+                         'tboli_postharvest_transpo_farm_to_road_other' =>
+                         $this->report_get != 6 ? [] : FarmToRoadAccessOrHouse::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'T\'boli');
+                         })->where('other', '!=', null)->count(),
+
+                          //Postharvest Transportation Farm to Market Farm Animal
+                        'banisilan_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Banisilan');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'magpet_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Magpet');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'alamada_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Alamada');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'matalam_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Matalam');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'makilala_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Makilala');
+                            })->where('farm_animals', '!=', null)->count(),
+                        'kidapawan_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Kidapawan');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'lake_sebu_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Lake Sebu');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'tupi_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Tupi');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'tampakan_postharvest_transpo_farm_to_market' =>
+                                $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'Tampakan');
+                        })->where('farm_animals', '!=', null)->count(),
+                        'tboli_postharvest_transpo_farm_to_market' =>
+                        $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                            $query->where('municipality', 'T\'boli');
+                        })->where('farm_animals', '!=', null)->count(),
+
+                         //Postharvest Transportation Farm to Market Farm Animal With Vehicle
+                         'banisilan_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Banisilan');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'magpet_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Magpet');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'alamada_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Alamada');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'matalam_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Matalam');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'makilala_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Makilala');
+                             })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'kidapawan_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Kidapawan');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'lake_sebu_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Lake Sebu');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'tupi_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tupi');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'tampakan_postharvest_transpo_farm_to_market_vehicle' =>
+                                 $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tampakan');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+                         'tboli_postharvest_transpo_farm_to_market_vehicle' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'T\'boli');
+                         })->where('farm_animals_with_vehicles', '!=', null)->count(),
+
+                        //Postharvest Transportation Farm to Market Farm Animal Other
+                         'banisilan_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Banisilan');
+                         })->where('other', '!=', null)->count(),
+                         'magpet_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Magpet');
+                         })->where('other', '!=', null)->count(),
+                         'alamada_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Alamada');
+                         })->where('other', '!=', null)->count(),
+                         'matalam_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Matalam');
+                         })->where('other', '!=', null)->count(),
+                         'makilala_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Makilala');
+                             })->where('other', '!=', null)->count(),
+                         'kidapawan_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Kidapawan');
+                         })->where('other', '!=', null)->count(),
+                         'lake_sebu_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Lake Sebu');
+                         })->where('other', '!=', null)->count(),
+                         'tupi_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tupi');
+                         })->where('other', '!=', null)->count(),
+                         'tampakan_postharvest_transpo_farm_to_market_other' =>
+                                 $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'Tampakan');
+                         })->where('other', '!=', null)->count(),
+                         'tboli_postharvest_transpo_farm_to_market_other' =>
+                         $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
+                             $query->where('municipality', 'T\'boli');
+                         })->where('other', '!=', null)->count(),
         ]);
     }
 }
