@@ -69,18 +69,18 @@
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['MEMBER 1', 'MEMBER 2', 'MEMBER 3', 'MEMBER 4', 'MEMBER 5', 'MEMBER 6'],
+    labels: ['Banisilan', 'Magpet', 'Alamada', 'Matalam', 'Makilala', 'Kidapawan'],
     datasets: [{
-      label: 'MEMBERS',
-      data: [12, 19, 3, 5, 2, 3],
+      label: 'Respondents North Cotabato',
+      data: [48, 58, 44, 31, 32, 24],
       borderWidth: 1,
       backgroundColor: [
-              '#347354',
               '#04414c',
-              '#c96722',
-              '#091238',
-              '#b30000',
-              '#803763'
+              '#04414c',
+              '#04414c',
+              '#04414c',
+              '#04414c',
+              '#04414c'
             ]
     }]
   },
