@@ -14,8 +14,7 @@
               <option value="4">Pesticides</option>
               <option value="5">Prunning, Harvesting, Postharvest Materials</option>
               <option value="6">Postharvest Transportation</option>
-              {{-- <option value="2">Active Members</option>
-              <option value="3">Terminated Members</option> --}}
+              <option value="7">Coffee Farming</option>
             </x-native-select>
             <x-button.circle positive icon="refresh" spinner="report_get" />
           </div>
@@ -62,6 +61,9 @@
       @break
       @case(6)
       @include('reports.postharvest-transportation')
+      @break
+      @case(7)
+      @include('reports.coffee_farming')
       @break
       @default
         <h1 class="text-gray-600">Select report to generate.</h1>

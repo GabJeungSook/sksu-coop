@@ -9,6 +9,7 @@ use App\Models\Prunning;
 use App\Models\Harvesting;
 use App\Models\Masterlist;
 use App\Models\FarmToMarket;
+use App\Models\FarmTopography;
 use App\Models\FertilizerOrganic;
 use App\Models\PesticideHerbicide;
 use App\Models\PostharvesMaterial;
@@ -21,7 +22,7 @@ class Report extends Component
 
     public function redirectToMasterlist()
     {
-        return redirect()->route('masterlist');
+        return redirect()->route('dashboard');
     }
 
     public function render()
@@ -2337,6 +2338,216 @@ class Report extends Component
                          $this->report_get != 6 ? [] : FarmToMarket::whereHas('farmer', function($query) {
                              $query->where('municipality', 'T\'boli');
                          })->where('other', '!=', null)->count(),
+
+                          //# of Years in Coffee Farming
+                          'banisilan_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Banisilan');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'magpet_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Magpet');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'alamada_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Alamada');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'matalam_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Matalam');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'makilala_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Makilala');
+                              })->sum('number_of_years_in_coffee_farming'),
+                          'kidapawan_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Kidapawan');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'lake_sebu_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Lake Sebu');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'tupi_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Tupi');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'tampakan_years_of_coffee' =>
+                                  $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'Tampakan');
+                          })->sum('number_of_years_in_coffee_farming'),
+                          'tboli_years_of_coffee' =>
+                          $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                              $query->where('municipality', 'T\'boli');
+                          })->sum('number_of_years_in_coffee_farming'),
+
+                           //Area planted for coffee
+                           'banisilan_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Banisilan');
+                           })->sum('area_planted_for_coffee'),
+                           'magpet_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Magpet');
+                           })->sum('area_planted_for_coffee'),
+                           'alamada_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Alamada');
+                           })->sum('area_planted_for_coffee'),
+                           'matalam_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Matalam');
+                           })->sum('area_planted_for_coffee'),
+                           'makilala_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                                $query->where('municipality', 'Makilala');
+                               })->sum('area_planted_for_coffee'),
+                           'kidapawan_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Kidapawan');
+                           })->sum('area_planted_for_coffee'),
+                           'lake_sebu_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Lake Sebu');
+                           })->sum('area_planted_for_coffee'),
+                           'tupi_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tupi');
+                           })->sum('area_planted_for_coffee'),
+                           'tampakan_area_of_coffee' =>
+                                   $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tampakan');
+                           })->sum('area_planted_for_coffee'),
+                           'tboli_area_of_coffee' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'T\'boli');
+                           })->sum('area_planted_for_coffee'),
+
+                               //# of Planting Materials
+                           'banisilan_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Banisilan');
+                           })->sum('number_of_planting_materials'),
+                           'magpet_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Magpet');
+                           })->sum('number_of_planting_materials'),
+                           'alamada_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Alamada');
+                           })->sum('number_of_planting_materials'),
+                           'matalam_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Matalam');
+                           })->sum('number_of_planting_materials'),
+                           'makilala_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                                $query->where('municipality', 'Makilala');
+                               })->sum('number_of_planting_materials'),
+                           'kidapawan_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Kidapawan');
+                           })->sum('number_of_planting_materials'),
+                           'lake_sebu_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Lake Sebu');
+                           })->sum('number_of_planting_materials'),
+                           'tupi_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tupi');
+                           })->sum('number_of_planting_materials'),
+                           'tampakan_planting_materials' =>
+                                   $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tampakan');
+                           })->sum('number_of_planting_materials'),
+                           'tboli_planting_materials' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'T\'boli');
+                           })->sum('number_of_planting_materials'),
+
+                               //Years Maturity of Coffee
+                           'banisilan_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Banisilan');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'magpet_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Magpet');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'alamada_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Alamada');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'matalam_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Matalam');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'makilala_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                                $query->where('municipality', 'Makilala');
+                               })->sum('years_maturity_of_the_coffee'),
+                           'kidapawan_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Kidapawan');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'lake_sebu_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Lake Sebu');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'tupi_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tupi');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'tampakan_years_maturity' =>
+                                   $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tampakan');
+                           })->sum('years_maturity_of_the_coffee'),
+                           'tboli_years_maturity' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'T\'boli');
+                           })->sum('years_maturity_of_the_coffee'),
+
+                            //Area of expansion
+                           'banisilan_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Banisilan');
+                           })->sum('area_of_expansion'),
+                           'magpet_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Magpet');
+                           })->sum('area_of_expansion'),
+                           'alamada_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Alamada');
+                           })->sum('area_of_expansion'),
+                           'matalam_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Matalam');
+                           })->sum('area_of_expansion'),
+                           'makilala_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                                $query->where('municipality', 'Makilala');
+                               })->sum('area_of_expansion'),
+                           'kidapawan_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Kidapawan');
+                           })->sum('area_of_expansion'),
+                           'lake_sebu_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Lake Sebu');
+                           })->sum('area_of_expansion'),
+                           'tupi_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tupi');
+                           })->sum('area_of_expansion'),
+                           'tampakan_area_of_expansion' =>
+                                   $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'Tampakan');
+                           })->sum('area_of_expansion'),
+                           'tboli_area_of_expansion' =>
+                           $this->report_get != 7 ? [] : FarmTopography::whereHas('farmer', function($query) {
+                               $query->where('municipality', 'T\'boli');
+                           })->sum('area_of_expansion'),
         ]);
     }
 }
