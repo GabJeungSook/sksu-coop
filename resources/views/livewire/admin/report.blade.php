@@ -8,13 +8,13 @@
         <div class="select flex space-x-2 items-end">
             <x-native-select label="Report" wire:model="report_get">
                 <option >Select Report</option>
-              <option value="1">Profile Of Respondents</option>
+              {{-- <option value="1">Profile Of Respondents</option>
               <option value="2">Planting Materials</option>
               <option value="3">Fertilizers</option>
               <option value="4">Pesticides</option>
               <option value="5">Prunning, Harvesting, Postharvest Materials</option>
               <option value="6">Postharvest Transportation</option>
-              <option value="7">Coffee Farming</option>
+              <option value="7">Coffee Farming</option> --}}
             </x-native-select>
             <x-button.circle positive icon="refresh" spinner="report_get" />
           </div>

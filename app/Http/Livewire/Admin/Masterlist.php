@@ -33,113 +33,113 @@ class Masterlist extends Component implements Tables\Contracts\HasTable
     protected function getTableHeaderActions(): array
     {
         return [
-            Action::make('create')
-            ->label('Add Member')
-            ->button()
-            ->color('primary')
-            ->icon('heroicon-o-plus')
-            ->action(function (array $data): void {
-                MasterlistModel::create([
-                    'member_id' => $data['member_id'],
-                    'first_name' => $data['first_name'],
-                    'middle_name' => $data['middle_name'],
-                    'last_name' => $data['last_name'],
-                    'tin_number' => $data['tin_number'],
-                    'address' => $data['address'],
-                    'date_of_birth' => $data['date_of_birth'],
-                    'age' => $data['age'],
-                    'gender' => $data['gender'],
-                    'civil_status' => $data['civil_status'],
-                    'educational_attainment' => $data['educational_attainment'],
-                    'occupation' => $data['occupation'],
-                    'dependent_number' => $data['dependent_number'],
-                    'religion' => $data['religion'],
-                    'income' => $data['income'],
-                    'date_accepted' => $data['date_accepted'],
-                    'bod_number' => $data['bod_number'],
-                    'membership_type' => $data['membership_type'],
-                    'number_of_shares' => $data['number_of_shares'],
-                    'amount_subscribed' => $data['amount_subscribed'],
-                    'initial_paid_up' => $data['initial_paid_up'],
-                    'bod_resolution' => $data['bod_resolution'],
-                    'date_created' => $data['date_created'],
-                    'image_path' => $data['image_path'],
-                ]);
-                $this->dialog()->success(
-                    $title = 'Success',
-                    $description = 'Saved successfully'
-                );
-            })
-            ->form([
-                Wizard::make([
-                    Wizard\Step::make('Step 1')
-                        ->schema([
-                            FileUpload::make('image_path')->label('Photo')->avatar()->image(),
-                            Forms\Components\TextInput::make('member_id')->label("Membership ID")->numeric()->required(),
+        //     Action::make('create')
+        //     ->label('Add Member')
+        //     ->button()
+        //     ->color('primary')
+        //     ->icon('heroicon-o-plus')
+        //     ->action(function (array $data): void {
+        //         MasterlistModel::create([
+        //             'member_id' => $data['member_id'],
+        //             'first_name' => $data['first_name'],
+        //             'middle_name' => $data['middle_name'],
+        //             'last_name' => $data['last_name'],
+        //             'tin_number' => $data['tin_number'],
+        //             'address' => $data['address'],
+        //             'date_of_birth' => $data['date_of_birth'],
+        //             'age' => $data['age'],
+        //             'gender' => $data['gender'],
+        //             'civil_status' => $data['civil_status'],
+        //             'educational_attainment' => $data['educational_attainment'],
+        //             'occupation' => $data['occupation'],
+        //             'dependent_number' => $data['dependent_number'],
+        //             'religion' => $data['religion'],
+        //             'income' => $data['income'],
+        //             'date_accepted' => $data['date_accepted'],
+        //             'bod_number' => $data['bod_number'],
+        //             'membership_type' => $data['membership_type'],
+        //             'number_of_shares' => $data['number_of_shares'],
+        //             'amount_subscribed' => $data['amount_subscribed'],
+        //             'initial_paid_up' => $data['initial_paid_up'],
+        //             'bod_resolution' => $data['bod_resolution'],
+        //             'date_created' => $data['date_created'],
+        //             'image_path' => $data['image_path'],
+        //         ]);
+        //         $this->dialog()->success(
+        //             $title = 'Success',
+        //             $description = 'Saved successfully'
+        //         );
+        //     })
+        //     ->form([
+        //         Wizard::make([
+        //             Wizard\Step::make('Step 1')
+        //                 ->schema([
+        //                     FileUpload::make('image_path')->label('Photo')->avatar()->image(),
+        //                     Forms\Components\TextInput::make('member_id')->label("Membership ID")->numeric()->required(),
 
-                            Card::make()
-                            ->schema([
-                                Grid::make(3)
-                                ->schema([
-                                    Forms\Components\TextInput::make('last_name')->required(),
-                                    Forms\Components\TextInput::make('middle_name'),
-                                    Forms\Components\TextInput::make('first_name')->required(),
-                                    ])
-                            ]),
-                            Grid::make(2)
-                            ->schema([
-                                Forms\Components\TextInput::make('tin_number')->label("TIN"),
-                                Forms\Components\TextInput::make('address'),
-                                Forms\Components\DatePicker::make('date_of_birth')->reactive()
-                                ->afterStateUpdated(function ($get, $set, $state){
-                                    $date_of_birth = $state;
-                                    $age = date_diff(date_create($date_of_birth), date_create('today'))->y;
-                                    $set('age', $age);
-                                }),
-                                Forms\Components\TextInput::make('age')->disabled()->reactive(),
-                                Select::make('gender')->options([
-                                    'male' => 'Male',
-                                    'female' => 'Female'
-                                ]),
-                                Select::make('civil_status')->options([
-                                    'M' => 'Married',
-                                    'S' => 'Single'
-                                ]),
-                                Forms\Components\TextInput::make('educational_attainment')->label('Highest Educational Attainment'),
-                                Forms\Components\TextInput::make('occupation')->label('Occupation / Source of Income'),
-                                Forms\Components\TextInput::make('dependent_number')->label("No. of Dependent")->numeric(),
-                                Forms\Components\TextInput::make('religion')->label("Religion / Social Affiliation"),
-                            ]),
-                            Forms\Components\TextInput::make('income')->label("Annual Income")->numeric(),
+        //                     Card::make()
+        //                     ->schema([
+        //                         Grid::make(3)
+        //                         ->schema([
+        //                             Forms\Components\TextInput::make('last_name')->required(),
+        //                             Forms\Components\TextInput::make('middle_name'),
+        //                             Forms\Components\TextInput::make('first_name')->required(),
+        //                             ])
+        //                     ]),
+        //                     Grid::make(2)
+        //                     ->schema([
+        //                         Forms\Components\TextInput::make('tin_number')->label("TIN"),
+        //                         Forms\Components\TextInput::make('address'),
+        //                         Forms\Components\DatePicker::make('date_of_birth')->reactive()
+        //                         ->afterStateUpdated(function ($get, $set, $state){
+        //                             $date_of_birth = $state;
+        //                             $age = date_diff(date_create($date_of_birth), date_create('today'))->y;
+        //                             $set('age', $age);
+        //                         }),
+        //                         Forms\Components\TextInput::make('age')->disabled()->reactive(),
+        //                         Select::make('gender')->options([
+        //                             'male' => 'Male',
+        //                             'female' => 'Female'
+        //                         ]),
+        //                         Select::make('civil_status')->options([
+        //                             'M' => 'Married',
+        //                             'S' => 'Single'
+        //                         ]),
+        //                         Forms\Components\TextInput::make('educational_attainment')->label('Highest Educational Attainment'),
+        //                         Forms\Components\TextInput::make('occupation')->label('Occupation / Source of Income'),
+        //                         Forms\Components\TextInput::make('dependent_number')->label("No. of Dependent")->numeric(),
+        //                         Forms\Components\TextInput::make('religion')->label("Religion / Social Affiliation"),
+        //                     ]),
+        //                     Forms\Components\TextInput::make('income')->label("Annual Income")->numeric(),
 
-                        ]),
-                    Wizard\Step::make('Step 2')
-                        ->schema([
-                            Grid::make(3)
-                            ->schema([
-                                Forms\Components\DatePicker::make('date_accepted'),
-                                Forms\Components\TextInput::make('bod_number')->label("BOD RES Number")->numeric(),
-                                Forms\Components\TextInput::make('membership_type')->label('Type / Kind of Membership'),
-                                Forms\Components\TextInput::make('number_of_shares')->label("Number of Shares Subscribed")->numeric(),
-                                Forms\Components\TextInput::make('amount_subscribed')->label("Amount Subscribed")->numeric(),
-                                Forms\Components\TextInput::make('initial_paid_up')->label("Initial Paid Up")->numeric(),
-                            ])
-                        ]),
-                    Wizard\Step::make('Step 3')
-                        ->schema([
-                            Grid::make(2)
-                            ->schema([
-                                Forms\Components\TextInput::make('bod_resolution')->label("BOD Resolution"),
-                                Forms\Components\DatePicker::make('date_created'),
-                            ])
-                        ]),
-                ])
-
-
+        //                 ]),
+        //             Wizard\Step::make('Step 2')
+        //                 ->schema([
+        //                     Grid::make(3)
+        //                     ->schema([
+        //                         Forms\Components\DatePicker::make('date_accepted'),
+        //                         Forms\Components\TextInput::make('bod_number')->label("BOD RES Number")->numeric(),
+        //                         Forms\Components\TextInput::make('membership_type')->label('Type / Kind of Membership'),
+        //                         Forms\Components\TextInput::make('number_of_shares')->label("Number of Shares Subscribed")->numeric(),
+        //                         Forms\Components\TextInput::make('amount_subscribed')->label("Amount Subscribed")->numeric(),
+        //                         Forms\Components\TextInput::make('initial_paid_up')->label("Initial Paid Up")->numeric(),
+        //                     ])
+        //                 ]),
+        //             Wizard\Step::make('Step 3')
+        //                 ->schema([
+        //                     Grid::make(2)
+        //                     ->schema([
+        //                         Forms\Components\TextInput::make('bod_resolution')->label("BOD Resolution"),
+        //                         Forms\Components\DatePicker::make('date_created'),
+        //                     ])
+        //                 ]),
+        //         ])
 
 
-            ])
-        ];
+
+
+        //     ])
+         ];
     }
 
     protected function getTableActions(): array
